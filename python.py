@@ -25,4 +25,4 @@ if args.operation == "d":
     local_path = str(input("Enter Local Path:"))
     remote_login = RemoteLogin(args.ip, args.port, args.user, args.password, args.key,
                                local_path, "/var/log")
-    remote_login.download_file(str(input("Give File downloaded file with Path:")))
+    remote_login.download_file(str(input("Give File downloaded file with Path:"))) 

@@ -27,7 +27,6 @@ pipeline {
                     sh """
                     git add python.py
                     git commit -m "format using script"
-                    git pull --rebase
                     git push -u origin feature/test
                     """
                 }

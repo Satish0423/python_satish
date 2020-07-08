@@ -7,7 +7,6 @@ pipeline {
                     sh """
                     git clone git@github.com:Satish0423/python_satish.git
                     cd python_satish
-                    git checkout feature/test
                     """
                 }
             }

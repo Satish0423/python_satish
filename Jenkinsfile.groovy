@@ -1,5 +1,8 @@
 pipeline {
-    agent any 
+    agent any
+    parameters {
+        choice(name: 'FORMAT', choices: ['No', 'Yes'], description: 'if you want format?')
+    }
     stages {
         stage('clone repository') {
             steps {
@@ -12,6 +15,11 @@ pipeline {
             }
         }
         stage('code format') {
+            when {
+                expression {
+                    params.FORMAT == 'Yes'
+                }
+            }
             steps {
                 script {
                     sh """
@@ -21,12 +29,18 @@ pipeline {
             }
         }
         stage('commit and push to repoitory') {
+            when {
+                expression {
+                    params.FORMAT == 'Yes'
+                }
+            }
             steps {
                 script {
                     sh """
+                    git branch
                     git add python.py
                     git commit -m "format using script"
-                    git push -u origin feature/test
+                    git push
                     """
                 }
             }

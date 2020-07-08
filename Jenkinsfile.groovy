@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                    git branch
+                    git checkout feature/test
                     git add python.py
                     git commit -m "format using script"
                     git push

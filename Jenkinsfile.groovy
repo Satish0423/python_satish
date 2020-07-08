@@ -27,10 +27,15 @@ pipeline {
                     sh """
                     git add python.py
                     git commit -m "format using script"
-                    git push
+                    git push -u origin feature/test
                     """
                 }
             }
+        }
+    }
+    post {
+        allways {
+            cleanWs()
         }
     }
 }
